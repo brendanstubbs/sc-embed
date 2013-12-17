@@ -1,5 +1,11 @@
-.scembed-gamelist {
+.scembed-container {
+	position: relative;
+	perspective: 800px;
+}
+
+.scembed-game {
 	width: 320px;
+	height: 100px;
 	font-family: 'bentonsans', sans-serif;
 	font-size: 16px;
 	color: #333;
@@ -7,14 +13,14 @@
 	box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.15);
 }
 
-.scembed-game {
+.scembed-game-summary {
 	height: 100px;
 	position: relative;
 	right: 0;
 	bottom: 0;
 }
 
-.scembed-gamelist-header {
+.scembed-game-header {
 
 }
 
@@ -71,19 +77,36 @@
 	right: 5px;
 	bottom: 5px;
 }
+
 /*Lines:#DDD, Text:#333,#999*/
 
 
 
 /*! 3D FLIP */
-.scembed-gamelist {
--webkit-transform: perspective(2200px) translateZ(0);
--webkit-transition-property: -webkit-transform;
--webkit-transition-duration: 0.25s;
--webkit-transition-timing-function: ease;
-height: 100%;
+.scembed-game {
+	-webkit-transform: perspective(2200px) translateZ(0);
+	-webkit-transition-property: -webkit-transform;
+	-webkit-transition-duration: 0.25s;
+	-webkit-transition-timing-function: ease;
+	-webkit-transform-style: preserve-3d;
 }
-.scembed-gamelist:hover {
+.scembed-game.flipped {
+	box-shadow: -1px 1px 2px 1px rgba(0, 0, 0, 0.15);
+	-webkit-transform: rotateY(180deg) !important;
+}
+.scembed-front,
+.scembed-back {
+	position: absolute;
+	-webkit-backface-visibility: hidden;
+
+}
+.scembed-back {
+	-webkit-transform: rotateY(180deg);
+}
+.scembed-front {
+-webkit-transform: rotateY(0deg);
+}
+.scembed-game:hover {
 -webkit-transform: perspective(2200px) rotateY(15deg);
 }
 
@@ -96,6 +119,6 @@ position: absolute;
 opacity: 0;
 -webkit-transition: opacity 0.25s ease;
 }
-.scembed-gamelist:hover .scembed-shadow {
+.scembed-game:hover .scembed-shadow {
 	opacity: 1;
 }
