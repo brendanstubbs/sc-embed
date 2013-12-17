@@ -1,0 +1,76 @@
+.scembed-gamelist {
+	width: 320px;
+	font-family: 'bentonsans', sans-serif;
+	font-size: 16px;
+	color: #333;
+	background-color: #FFF;
+	box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.15);
+}
+
+.scembed-linescore {
+	height: 100px;
+	position: relative;
+	right: 0;
+	bottom: 0;
+}
+
+.scembed-scoretable {
+	border-spacing: 0px;
+	float: left;
+	margin: 15px;
+	vertical-align: middle;
+	width: 195px;
+}
+.scembed-scoretable tr {
+	height: 35px;
+}
+
+.scembed-scoretable-away-logo-img,
+.scembed-scoretable-home-logo-img {
+	height: 30px;
+	width: 30px;
+}
+
+.scembed-scoretable-home-score,
+.scembed-scoretable-away-score {
+	color: #999;
+	text-align: right;
+}
+
+.scembed-gamestatus {
+	box-sizing: border-box;
+	float: right;
+	height: 80px;
+	width: 95px;
+	border-left: 1px solid #DDD;
+	margin-top: 10px;
+	padding: 17px 0px 17px 15px;
+
+}
+
+.scembed-gamestatus > div {
+	font-size: 10px;
+	line-height: 12px;
+	margin: 3px 0;
+}
+
+.scembed-gamestatus-line1 {
+	font-weight: 600;
+}
+
+.scembed-sc-logo {
+	background-image: url(sc-logo-gray.png);
+	height: 20px;
+	width: 30px;
+	position: absolute;
+	right: 5px;
+	bottom: 5px;
+}
+/*Lines:#DDD, Text:#333,#999*/
+
+
+
+
+
+
+
