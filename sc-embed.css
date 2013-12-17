@@ -34,6 +34,7 @@
 .scembed-scoretable-home-score,
 .scembed-scoretable-away-score {
 	color: #999;
+	font-size: 15px;
 	text-align: right;
 }
 
