@@ -4,6 +4,7 @@
 	cursor: pointer;
 }
 
+/*! Frontside */
 .scembed-game {
 	width: 320px;
 	height: 100px;
@@ -78,8 +79,6 @@
 	bottom: 5px;
 }
 
-/*Lines:#DDD, Text:#333,#999*/
-
 /*! Backside */
 .scembed-line-score {
 	width: 321px;
@@ -127,7 +126,6 @@
 
 .scembed-link-share {
 	background-image: url(share.png);
-	background-image: url(share.png);
 	height: 17px;
 	width: 24px;
 	position: absolute;
@@ -151,26 +149,24 @@
 .scembed-back {
 	position: absolute;
 	-webkit-backface-visibility: hidden;
-
 }
 .scembed-back {
 	-webkit-transform: rotateY(180deg);
 }
 .scembed-front {
--webkit-transform: rotateY(0deg);
+	-webkit-transform: rotateY(0deg);
 }
 .scembed-game:hover{
--webkit-transform: perspective(2200px) rotateY(15deg);
+	-webkit-transform: perspective(2200px) rotateY(15deg);
 }
-
 .scembed-shadow {
-background-image: -webkit-linear-gradient(right, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.01) 100%);
-height: 100%;
-width: 100%;
-display: block;
-position: absolute;
-opacity: 0;
--webkit-transition: opacity 0.25s ease;
+	background-image: -webkit-linear-gradient(right, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.01) 100%);
+	height: 100%;
+	width: 100%;
+	display: block;
+	position: absolute;
+	opacity: 0;
+	-webkit-transition: opacity 0.25s ease;
 }
 .scembed-game:hover .scembed-shadow {
 	opacity: 1;
