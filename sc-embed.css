@@ -106,7 +106,7 @@
 .scembed-front {
 -webkit-transform: rotateY(0deg);
 }
-.scembed-game:hover {
+.scembed-game:hover{
 -webkit-transform: perspective(2200px) rotateY(15deg);
 }
 
