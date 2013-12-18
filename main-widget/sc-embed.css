@@ -10,7 +10,7 @@
 .scembed-game {
 	width: 320px;
 	height: 100px;
-	font-family: 'bentonsansmedium', sans-serif;
+	font-family: 'bentonsans', sans-serif;
 	font-size: 16px;
 	color: #333;
 	background-color: #FFF;
@@ -39,7 +39,7 @@
 }
 .scembed-scoretable-home-score,
 .scembed-scoretable-away-score {
-	color: #333;
+	color: #999;
 	font-size: 15px;
 	text-align: right;
 }
@@ -53,13 +53,12 @@
 	padding: 17px 0px 17px 15px;
 }
 .scembed-gamestatus > div {
-	font-size: 12px;
+	font-size: 10px;
 	line-height: 12px;
 	margin: 3px 0;
-	font-family: 'bentonsans';
 }
 .scembed-gamestatus-line1 {
-	font-family: 'bentonsans';
+	font-family: 'bentonsansbold';
 }
 .scembed-sc-logo {
 	background-image: url(sc-logo-gray.png);
@@ -69,15 +68,6 @@
 	right: 5px;
 	bottom: 5px;
 }
-
-.scembed-line-score-table tr{
-
-	font-family: 'bentonsans';
-	
-	
-	
-}
-
 
 /*! Single Game Backside */
 .scembed-line-score {
@@ -131,13 +121,6 @@
 	position: absolute;
 	right: 24px;
 	bottom: 43px;
-}
-
-
-.scembed-player-stat-vals{
-	
-	font-family: 'bentonsans';
-	
 }
 
 
@@ -309,7 +292,6 @@
 }
 .scembed-game-big {
 	font-family: 'bentonsans', sans-serif;
-	
 	height: 360px;
 }
 .scembed-game-big > div {
@@ -426,7 +408,7 @@
 	text-overflow: ellipsis;
 }
 .scembed-recap-stats-container {
-	height: 51px;
+	height: 50px;
 	width: 100%;
 }	
 .scembed-bottom-btn {
@@ -436,9 +418,9 @@
 	float: left;
 	color: #FFF;
 	font-family: 'bentonsansmedium';
-	font-size: 16px;
+	font-size: 19px;
 	box-sizing: border-box;
-	line-height: 50px;
+	padding-top: 12px;
 }
 .scembed-recap-btn {
 	background-image: -webkit-linear-gradient(top, #2970c8, #225fb8);
@@ -495,17 +477,4 @@ th.scembed-match-stats-row {
 }
 .scembed-match-stats-row {
 
-}
-.scembed-sc-header-back {
-	height: 100%;
-	padding: 25px 25px 25px 20px;
-}
-.scembed-sc-header-back > img {
-	float: left;
-}
-.scembed-back-text {
-	text-transform: uppercase;
-	font-size: 13px;
-	margin-top: 1px;
-	margin-left: 20px;
 }

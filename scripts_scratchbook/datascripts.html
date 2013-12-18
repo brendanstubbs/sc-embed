@@ -90,6 +90,47 @@ var soccer_competitordetails = function(competitor){
 	});
 	return {'redCards' : redcards, 'yellowCards' : yellowcards, 'totalShots' : totalshots, 'shotsOnGoal' : shotsongoal };
 }
+
+//ignore this, just an example
+var render_headerscore = function(competition){
+	var scoreboard_header = '<table>';
+	//$.each(competitors, function(key,competitor){
+		var card_header = get_card_header(competition);
+		scoreboard_header += "<tr><td bgcolor='"+card_header.awayTeamColor+"'>" + card_header.awayTeam + "</td><td></td><td bgcolor='"+card_header.homeTeamColor+"'>" + card_header.homeTeam + "</td></tr>";
+		scoreboard_header += "<tr><td>" + card_header.awayTeamScore + "</td><td>" + (card_header.winningTeam == "away" ? '<' : '') +card_header.competitionStatus + (card_header.winningTeam == "home" ? '>' : '')  + "</td><td>"+ card_header.homeTeamScore + "</td></tr>";
+		scoreboard_header += "</table>";
+		$("#headerscoreboard").html(scoreboard_header);
+	//});
+}
+
+
+//game header
+var get_card_header = function(competition){
+
+    var homeTeam = "";
+    var awayTeam = "";
+    var homeTeamColor = "";
+    var awayTeamColor = "";
+    var homeTeamScore = 0;
+    var awayTeamScore = 0;
+    var competitionStatus = "";
+    var winningTeam = null;
+
+    $.each(competition.competitors, function(key,competitor){
+    	if(competitor.homeAway == "home"){
+    		homeTeam = competitor.team.name;
+    		homeTeamColor = competitor.team.color;
+    		homeTeamScore = competitor.score;
+    		winningTeam = (competitor.isWinner ? "home" : "away");
+    	}else{
+     		awayTeam = competitor.team.name;
+    		awayTeamColor = competitor.team.color;
+    		awayTeamScore = competitor.score;   		
+    	}
+    });
+    competitionStatus = competition.status.detail;
+    return {'homeTeam' : homeTeam , 'homeTeamScore' : homeTeamScore, 'homeTeamColor' : homeTeamColor , 'awayTeam' : awayTeam , 'awayTeamScore' : awayTeamScore, 'awayTeamColor' : awayTeamColor , 'competitionStatus' : competitionStatus,  'winningTeam' : winningTeam};
+  }
 </script>
 </head>
 
