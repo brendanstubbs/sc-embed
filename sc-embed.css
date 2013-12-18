@@ -2,9 +2,11 @@
 	position: relative;
 	perspective: 800px;
 	cursor: pointer;
+	margin-top: 25px; /*FOR TESTING*/
 }
 
-/*! Frontside */
+/*! Single Game Frontside */
+.scembed-player,
 .scembed-game {
 	width: 320px;
 	height: 100px;
@@ -14,18 +16,12 @@
 	background-color: #FFF;
 	box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.15);
 }
-
 .scembed-game-summary {
 	height: 100px;
 	position: relative;
 	right: 0;
 	bottom: 0;
 }
-
-.scembed-game-header {
-
-}
-
 .scembed-scoretable {
 	border-spacing: 0px;
 	float: left;
@@ -36,20 +32,17 @@
 .scembed-scoretable tr {
 	height: 35px;
 }
-
 .scembed-scoretable-away-logo-img,
 .scembed-scoretable-home-logo-img {
 	height: 30px;
 	width: 30px;
 }
-
 .scembed-scoretable-home-score,
 .scembed-scoretable-away-score {
 	color: #999;
 	font-size: 15px;
 	text-align: right;
 }
-
 .scembed-gamestatus {
 	box-sizing: border-box;
 	float: right;
@@ -59,17 +52,14 @@
 	margin-top: 10px;
 	padding: 17px 0px 17px 15px;
 }
-
 .scembed-gamestatus > div {
 	font-size: 10px;
 	line-height: 12px;
 	margin: 3px 0;
 }
-
 .scembed-gamestatus-line1 {
 	font-weight: 600;
 }
-
 .scembed-sc-logo {
 	background-image: url(sc-logo-gray.png);
 	height: 20px;
@@ -79,11 +69,10 @@
 	bottom: 5px;
 }
 
-/*! Backside */
+/*! Single Game Backside */
 .scembed-line-score {
 	width: 321px;
 }
-
 .scembed-line-score-table {
 	font-size: 12px;
 	float:left;
@@ -103,18 +92,20 @@
 .scembed-line-score-table tr td.scembed-line-score-team-abbrev {
 	text-align: left;
 	padding-right: 6px;
+	max-width: 74px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
-
 .scembed-links {
 	box-sizing: border-box;
 	float: right;
 	height: 80px;
-	width: 164px;
+	width: 135px;
 	border-left: 1px solid #DDD;
 	margin-top: 10px;
 	padding: 17px 0px 17px 15px;
 }
-
 .scembed-links > a {
 	display: block;
 	width: 0px;
@@ -123,7 +114,6 @@
 	color: #2880d9;
 	text-decoration: none;
 }
-
 .scembed-link-share {
 	background-image: url(share.png);
 	height: 17px;
@@ -133,7 +123,103 @@
 	bottom: 43px;
 }
 
+/*! SC Header */
+.scembed-header {
+	width: 320px;
+	height: 70px;
+	font-family: 'bentonsans', sans-serif;
+	font-size: 16px;
+	color: #333;
+	background-color: #FFF;
+	box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.15);
+}
+.scembed-sc-header-logo {
+	box-sizing: border-box;
+	height: 50px;
+	width: 85px;
+	border-right: 1px solid #DDD;
+	margin: 10px;
+	float: left;
+}
+.scembed-sc-header-logo .sc-logo {
+	background-image: url(sc-scores-lockup.png);
+	height: 42px;
+	width: 47px;
+	margin: 5px 0 0 16px;
+}
+.scembed-header-title {
+	line-height: 70px;
+	font-size: 18px;
+	padding-left: 5px;
+	float: left;
+}
+
+
+/*! PLAYERCARD */
+.scembed-player .scembed-front {
+	height: 100px;
+	width: 320px;
+}
+.scembed-player-topline {
+	height: 7px;
+	width: 100%;
+	background-color: #00295b;
+}
+.scembed-player-mug {
+	width: 100px;
+	background-image: url(http://a.espncdn.com/combiner/i?img=/i/headshots/nfl/players/full/5209.png&h=100&w=130);
+	background-position-x: 80%;
+	height: 93px;
+	float: left;
+}
+.scembed-player-team-logo {
+	float: left;
+	height: 40px;
+	width: 40px;
+	margin-top: -5px;
+	background-image: url(dal.png);
+}
+.scembed-player-info {
+	width: 200px;
+	height: 40px;
+	margin-left: 100px;
+	margin-top: 10px;
+	border-bottom: 1px solid #DDD;
+}
+.scembed-player-team-name {
+	float: left;
+	font-size: 12px;
+}
+.scembed-player-name-container {
+	float: left;
+}
+.scembed-player-name {
+	font-weight: 600;
+}
+.scembed-player-number,
+.scembed-player-position {
+	font-size: 12px;
+	font-weight: bold;
+	color: #999;
+}
+.scembed-player-stat-summary {
+	font-size: 12px;
+	width: 200px;
+	text-align: center;
+}
+.scembed-player-stat-labels {
+	font-weight: 600;
+}
+.scembed-stat-label {
+
+}
+.scembed-stat-val {
+
+}
+
+
 /*! 3D FLIP */
+.scembed-player,
 .scembed-game {
 	-webkit-transform: perspective(2200px) translateZ(0);
 	-webkit-transition-property: -webkit-transform;
@@ -141,6 +227,7 @@
 	-webkit-transition-timing-function: ease;
 	-webkit-transform-style: preserve-3d;
 }
+.scembed-player.flipped,
 .scembed-game.flipped {
 	box-shadow: -1px 1px 2px 1px rgba(0, 0, 0, 0.15);
 	-webkit-transform: rotateY(180deg) !important;
@@ -156,6 +243,7 @@
 .scembed-front {
 	-webkit-transform: rotateY(0deg);
 }
+.scembed-player:hover,
 .scembed-game:hover{
 	-webkit-transform: perspective(2200px) rotateY(15deg);
 }
@@ -168,6 +256,7 @@
 	opacity: 0;
 	-webkit-transition: opacity 0.25s ease;
 }
+.scembed-player:hover .scembed-shadow,
 .scembed-game:hover .scembed-shadow {
 	opacity: 1;
 }

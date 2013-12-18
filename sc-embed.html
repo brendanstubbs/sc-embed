@@ -6,14 +6,11 @@
 <link rel="stylesheet" href="http://a.espncdn.com/combiner/c?css=fonts/bentonsans.css,fonts/bentonsansbold.css,fonts/bentonsanslight.css,fonts/bentonsansmedium.css"type="text/css"media="screen" charset="utf-8">
 </head>
 
-
-
 <body>
+
+
 	<div class="scembed-container" onclick="toggleFlip()">
 		<div class="scembed-game">
-
-			<!-- <span class="scembed-game-header"></span> -->
-			
 			<div class="scembed-front">
 				<div class="scembed-shadow"></div>
 				<div class="scembed-game-summary">
@@ -85,14 +82,67 @@
 			
 		</div>
 	</div>
+
+	
+
+	<div class="scembed-container">
+		<div class="scembed-header">
+			<div class="scembed-sc-header-logo">
+				<div class="sc-logo"></div>
+			</div>
+			<div class="scembed-header-title">NFL Schedule</div>
+		</div>
+	</div>
+
+
+
+	<div class="scembed-container" onclick="toggleFlip()">
+		<div class="scembed-player">
+			<div class="scembed-front">
+				<div class="scembed-shadow"></div>
+				<div class="scembed-player-topline"></div>
+				<div class="scembed-player-mug"></div>
+				<div class="scembed-player-info">
+					<div class="scembed-player-team-logo"></div>
+					<div class="scembed-player-team-name">Dallas Cowboys</div>
+					<div class="scembed-player-name-container">
+						<span class="scembed-player-name">Tony Romo</span>
+						<span class="scembed-player-number">#9</span>
+						<span class="scembed-player-position">QB</span>
+					</div>
+				</div>
+				<table class="scembed-player-stat-summary">
+					<tbody>
+						<tr class="scembed-player-stat-labels">
+							<td class="scembed-stat-label scembed-stat1">YDS</td>
+							<td class="scembed-stat-label scembed-stat2">CMP%</td>
+							<td class="scembed-stat-label scembed-stat3">TD</td>
+							<td class="scembed-stat-label scembed-stat4">INT</td>
+							<td class="scembed-stat-label scembed-stat5">RAT</td>
+						</tr>
+						<tr class="scembed-player-stat-vals">
+							<td class="scembed-stat-val scembed-stat1">3602</td>
+							<td class="scembed-stat-val scembed-stat2">64.0</td>
+							<td class="scembed-stat-val scembed-stat3">29</td>
+							<td class="scembed-stat-val scembed-stat4">9</td>
+							<td class="scembed-stat-val scembed-stat5">96.6</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="scembed-back">
+			</div>
+		</div>
+	</div>
+
+
 </body>
 
 
 <script src="jquery.js" ></script>
 <script type="text/javascript">
-   toggleFlip = function(el){ $('.scembed-game').toggleClass('flipped'); };
+   toggleFlip = function(el){ $('.scembed-game, .scembed-player').toggleClass('flipped'); };
 </script>
-
 
 
 </html>
