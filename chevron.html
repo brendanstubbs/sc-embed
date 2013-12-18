@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Title Here</title>
+		
+		<style>
+		
+		
+#chevron {
+  position: relative;
+  top: 100px;
+  text-align: center;
+  padding: 12px;
+  margin-bottom: 6px;
+  height: 5px;
+  width: 5px;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+#chevron:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20%;
+  width: 70%;
+  background: red;
+  -webkit-transform: skew(0deg, 30deg);
+  -moz-transform: skew(0deg, 30deg);
+  -ms-transform: skew(0deg, 30deg);
+  -o-transform: skew(0deg, 30deg);
+  transform: skew(0deg, 30deg);
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(0deg, -45deg);
+  -ms-transform: rotate(0deg, -45deg);
+  -o-transform: rotate(0deg, -45deg);
+}
+#chevron:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 20%;
+  width: 61%;
+  background: red;
+  -webkit-transform: skew(0deg, -30deg);
+  -moz-transform: skew(0deg, -30deg);
+  -ms-transform: skew(0deg, -30deg);
+  -o-transform: skew(0deg, -30deg);
+  transform: skew(0deg, -30deg);
+    -webkit-transform: rotate(-45deg);
+     -moz-transform: rotate(0deg, -45deg);
+  -ms-transform: rotate(0deg, -45deg);
+  -o-transform: rotate(0deg, -45deg);
+
+}​
+
+		
+		
+		</style>
+		
+		
+	</head>
+	<body>
+	
+	
+	<div id="chevron"></div>
+	
+	
+	
+	</body>
+</html>

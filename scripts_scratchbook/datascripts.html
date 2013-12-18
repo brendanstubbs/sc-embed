@@ -1,0 +1,123 @@
+<head>
+<script src="http://a.espncdn.com/combiner/c?js=jquery-1.7.1.js"></script>
+<script>
+
+var sCurrSport = "nfl";
+
+function get_data(endpoint,data,callback){
+	$.ajax({
+	  type: "GET",
+	  url: endpoint,
+	  data: data,
+	  success: function(result){
+	  	callback(result);
+	  },
+	  error: function(jqXHR,textStatus,errorThrown ){
+	  	callback(({"status" : "error", "errorText" : errorThrown}));
+	  }
+	});
+
+	/*$.getJSON(endpoint + "?" + data, function( result ) {
+		callback(result);
+  	});*/
+	return false;    
+}
+
+var render_headerscore = function(competition){
+	var scoreboard_header = '<table>';
+	//$.each(competitors, function(key,competitor){
+		var competitors = competition.competitors;
+		scoreboard_header += "<tr><td bgcolor='"+competitors[1].team.color+"'>" + competitors[1].team.name + "</td><td></td><td bgcolor='"+competitors[0].team.color+"'>" + competitors[0].team.name + "</td></tr>";
+		scoreboard_header += "<tr><td>" + competitors[1].score + "</td><td>" + (competitors[1].isWinner ? '<' : '') +competition.status.detail + (competitors[0].isWinner ? '>' : '')  + "</td><td>"+ competitors[0].score + "</td></tr>";
+		scoreboard_header += "</table>";
+		$("#headerscoreboard").html(scoreboard_header);
+	//});
+}
+
+var render_scoreboard = function(result){
+	var scoreboard = "<table><tr><td><table>";
+	if(sCurrSport != "soccer"){
+		$.each(result.sports, function(key,sports){
+			$.each(sports.leagues, function(key,leagues){
+				$.each(leagues.events,function(key,events){
+					$.each(events.competitions,function(key,competitions){
+						scoreboard += "<tr><td>Team</td>";
+						if(competitions.competitors[0].linescores != null){
+							for(var x=0;x<=(competitions.competitors[0].linescores.length-1);x++){
+								scoreboard += "<td>" + competitions.competitors[0].linescores[x].label + "</td>";
+							}
+						}
+						render_headerscore(competitions);
+						scoreboard += "<td>T</td></tr>";
+						$.each(competitions.competitors,function(key,competitors){
+							scoreboard += "<tr>";
+							scoreboard += "<td>"+competitors.team.name + "</td>";
+							soccer_competitordetails(competitors);
+							$.each(competitors.linescores, function(key,scores){
+								scoreboard += "<td>" + scores.score + "</td>";
+							});
+							scoreboard += "<td>" + competitors.score + "</td>";
+							scoreboard +="</tr>";
+						});
+						if(competitions.status.id > 2){
+							scoreboard += "</td><td><a href=\"http://scores.espn.go.com/nfl/recap?gameId="+events.id +"\">Recap</a><br>";
+						}
+						if(competitions.status.id > 1){
+							scoreboard += "<a href=\"http://scores.espn.go.com/nfl/boxscore?gameId="+events.id +"\">Stats</a></td></tr></table>";
+						}
+					});
+				});
+			});
+		});
+	}else{
+
+	}
+	scoreboard += "</td></tr></table>";
+	$('#scoreboard').html(scoreboard);
+}
+
+
+var soccer_competitordetails = function(competitor){
+	var redcards = 0;
+	var yellowcards = 0;
+	var shotsongoal = 0;
+	var totalshots = 0;
+	$.each(competitor.team.athletes, function(key,athlete){
+		redcards += athlete.redCards;
+		yellowcards += athlete.yellowCards;
+		totalshots += athlete.totalShots;
+		shotsongoal += athlete.shotsOnTarget;
+	});
+	return {'redCards' : redcards, 'yellowCards' : yellowcards, 'totalShots' : totalshots, 'shotsOnGoal' : shotsongoal };
+}
+</script>
+</head>
+
+<body>
+
+
+
+<script>
+
+ var baseurl = 'http://api.espn.com/v1/sports';
+ /*var sports = {[
+        {"endpoint": "/soccer/events/", "name": "soccer"},
+        {"endpoint": "/football/nfl/events/", "name": "nfl"},
+        {"endpoint": "/football/college-football/events/", "name": "college-football"}
+    ]
+};*/
+
+ (function() {
+ 		//get_data('http://api.espn.com/v1/sports/football/nfl/events/331212007','apikey=g3esy55uphsvhxe9sj8xvagk',render_scoreboard);
+ 		 get_data('http://api.espn.com/v1/sports/soccer/events/382712','apikey=g3esy55uphsvhxe9sj8xvagk',render_scoreboard);
+  })();
+</script>
+<div id="headerscoreboard"></div>
+<div id="scoreboard"></div>
+
+
+
+
+
+
+</body>

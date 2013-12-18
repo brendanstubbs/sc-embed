@@ -58,7 +58,7 @@
 	margin: 3px 0;
 }
 .scembed-gamestatus-line1 {
-	font-weight: 600;
+	font-family: 'bentonsansbold';
 }
 .scembed-sc-logo {
 	background-image: url(sc-logo-gray.png);
@@ -87,7 +87,7 @@
 	text-align: center;
 }
 .scembed-line-score-row.scembed-periods td {
-	font-weight: 600;
+	font-family: 'bentonsansbold';
 }
 .scembed-line-score-table tr td.scembed-line-score-team-abbrev {
 	text-align: left;
@@ -121,37 +121,6 @@
 	position: absolute;
 	right: 24px;
 	bottom: 43px;
-}
-
-/*! SC Header */
-.scembed-header {
-	width: 320px;
-	height: 70px;
-	font-family: 'bentonsans', sans-serif;
-	font-size: 16px;
-	color: #333;
-	background-color: #FFF;
-	box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.15);
-}
-.scembed-sc-header-logo {
-	box-sizing: border-box;
-	height: 50px;
-	width: 85px;
-	border-right: 1px solid #DDD;
-	margin: 10px;
-	float: left;
-}
-.scembed-sc-header-logo .sc-logo {
-	background-image: url(sc-scores-lockup.png);
-	height: 42px;
-	width: 47px;
-	margin: 5px 0 0 16px;
-}
-.scembed-header-title {
-	line-height: 70px;
-	font-size: 18px;
-	padding-left: 5px;
-	float: left;
 }
 
 
@@ -194,12 +163,12 @@
 	float: left;
 }
 .scembed-player-name {
-	font-weight: 600;
+	font-family: 'bentonsansbold';
 }
 .scembed-player-number,
 .scembed-player-position {
 	font-size: 12px;
-	font-weight: bold;
+	font-family: 'bentonsansbold';
 	color: #999;
 }
 .scembed-player-stat-summary {
@@ -208,7 +177,7 @@
 	text-align: center;
 }
 .scembed-player-stat-labels {
-	font-weight: 600;
+	font-family: 'bentonsansbold';
 }
 .scembed-stat-label {
 
@@ -259,4 +228,266 @@
 .scembed-player:hover .scembed-shadow,
 .scembed-game:hover .scembed-shadow {
 	opacity: 1;
+}
+
+
+/*! Games List */
+/*! SC Header */
+.scembed-header {
+	width: 320px;
+	height: 70px;
+	font-family: 'bentonsans', sans-serif;
+	font-size: 16px;
+	color: #333;
+	background-color: #FFF;
+	border-bottom: 1px solid #DDD;
+	/*box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.15);*/
+}
+.scembed-sc-header-logo {
+	box-sizing: border-box;
+	height: 50px;
+	width: 85px;
+	border-right: 1px solid #DDD;
+	margin: 10px;
+	float: left;
+}
+.scembed-sc-header-logo .sc-logo {
+	background-image: url(sc-scores-lockup.png);
+	height: 42px;
+	width: 47px;
+	margin: 5px 0 0 16px;
+}
+.scembed-header-title {
+	line-height: 70px;
+	font-size: 18px;
+	padding-left: 5px;
+	float: left;
+}
+.scembed-games-list-container {
+	height: 436px;
+	width: 320px;
+	box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.15);
+}
+.scembed-games-list {
+	width: 320px;
+	max-height: 360px;
+	overflow-y: scroll;
+}
+.scembed-games-list::-webkit-scrollbar {
+	width: 0px;
+}
+.dummy-placeholder {
+	width: 320px;
+	float: left;
+	height: 100px;
+	border-bottom: 1px solid #000;
+	background-color: pink;
+}
+
+
+
+/*! Big Single Game*/
+.scembed-sc-header-back {
+
+}
+.scembed-game-big {
+	font-family: 'bentonsans', sans-serif;
+	height: 360px;
+}
+.scembed-game-big > div {
+	box-sizing: border-box;
+}
+.scembed-game-big-teams {
+	height: 40px;
+	width: 100%;
+}
+.scembed-game-big-team-name {
+	box-sizing: border-box;
+	float: left;
+	width: 50%;
+	height: 100%;
+	padding-top: 12px;
+	font-size: 14px;
+	color: #FFF;
+	text-transform: uppercase;
+	text-align: center;
+}
+.scembed-game-big-away-team-name {
+	background-color: #224970;
+}
+.scembed-game-big-home-team-name {
+	background-color: #052570;
+}
+.scembed-game-big-score {
+	width: 300px;
+	margin-left: 10px;
+	height: 65px;
+}
+.scembed-game-big-score > table {
+	width: 100%;
+	height: 100%;
+	table-layout: fixed;
+	text-align: center;
+	vertical-algin: middle;
+	border-bottom: 1px solid #DDD;
+}
+.scembed-game-big-team-logo > img {
+	width: 50px;
+	padding-top: 5px;
+}
+.scembed-game-big-away-team-logo {
+	text-align: left;
+}
+.scembed-game-big-home-team-logo {
+	text-align: right;
+}
+.scembed-game-big-team-score {
+	font-size: 33px;
+	font-family: 'bentonsansbold';
+}
+.scembed-game-big-line-score {
+	height: 100px;
+	width: 300px;
+	margin-left: 10px;
+	border-bottom: 1px solid #DDD;
+}
+.scembed-game-big-game-status {
+	color: #999;
+	font-size: 14px;
+	font-family: 'bentonsansbold';
+}
+.scembed-game-big-line-score-container .scembed-line-score-table {
+	margin: 15px 15px 15px 0;
+}
+.scembed-line-score-row.scembed-periods {
+	
+}
+.scembed-line-score-row {
+	
+}
+.scembed-line-score-team-abbrev {
+	
+}
+.scembed-line-score-row {
+	
+}
+.scembed-line-score-team-abbrev {
+	
+}
+.scembed-game-big-status {
+	box-sizing: border-box;
+	float: right;
+	width: 130px;
+	height: 60px;
+	padding: 0px 5px 5px 10px;
+	border-left: 1px solid #DDD;
+	margin-top: 20px;
+	font-size: 12px;
+	color: #999;
+}
+.scembed-game-big-date {
+	padding-bottom: 13px;
+}
+.scembed-game-big-location {
+	
+}
+.scembed-top-performers {
+	width: 100%;
+	font-size: 12px;
+	line-height: 17px;
+	padding: 20px 10px;
+}
+.scembed-top-peformers-title {
+	font-family: 'bentonsansbold';
+	text-transform: uppercase;
+}
+.scembed-performer {
+	max-width: 300px;
+	white-sapce: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.scembed-recap-stats-container {
+	height: 50px;
+	width: 100%;
+}	
+.scembed-bottom-btn {
+	width: 50%;
+	height: 100%;
+	text-align: center;
+	float: left;
+	color: #FFF;
+	font-family: 'bentonsansmedium';
+	font-size: 19px;
+	box-sizing: border-box;
+	padding-top: 12px;
+}
+.scembed-recap-btn {
+	background-image: -webkit-linear-gradient(top, #2970c8, #225fb8);
+}
+.scembed-stats-btn {
+	background-image: -webkit-linear-gradient(top, #8b8f9a, #777b86);
+}
+
+.scembed-soccer .scembed-nfl-details {
+	display: none;
+}
+.scembed-football .scembed-soccer-details {
+	display: none;
+}
+/* Soccer Table */
+.scembed-match-stats-header {
+	box-sizing: border-box;
+	width: 300px;
+	height: 30px;
+	margin-left: 10px;
+	border-bottom: 1px solid #DDD;
+	text-align: center;
+	font-family: 'bentonsansbold';
+	text-transform: uppercase;
+	font-size: 13px;
+	padding-top: 7px;
+}
+.scembed-match-stats-table {
+	width: 100%;
+	font-size: 12px;
+	vertical-align: middle;
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+.scembed-match-stats-table tr {
+	height: 30px;
+}
+.scembed-match-stats-table tr:nth-child(even) {
+	background-color: #f8f8f8;
+}
+.scembed-stat-title {
+	text-align: left;
+	font-family: 'bentonsansbold';
+	padding-left: 30px;
+}
+th.scembed-match-stats-row {
+	font-family: 'bentonsansbold';
+	font-weight: normal;
+}
+.scembed-stat-home-val, 
+.scembed-stat-away-val {
+	text-align: center;
+	width: 60px;
+}
+.scembed-match-stats-row {
+
+}
+.scembed-sc-header-back {
+	height: 100%;
+	padding: 25px 25px 25px 20px;
+}
+.scembed-sc-header-back > img {
+	float: left;
+}
+.scembed-back-text {
+	text-transform: uppercase;
+	font-size: 13px;
+	margin-top: 1px;
+	margin-left: 20px;
 }
