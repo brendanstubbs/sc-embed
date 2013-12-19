@@ -40,11 +40,12 @@ var render_scoreboard = function(result){
 		$.each(result.sports, function(key,sports){
 			$.each(sports.leagues, function(key,leagues){
 				$.each(leagues.events,function(key,events){
+					scoreboard += "<tr><td>" + get_competition_info(events) + "</td></tr>"
 					$.each(events.competitions,function(key,competitions){
 						scoreboard += "<tr><td>Team</td>";
 						if(competitions.competitors[0].linescores != null){
-							for(var x=0;x<=(competitions.competitors[0].linescores.length-1);x++){
-								scoreboard += "<td>" + competitions.competitors[0].linescores[x].label + "</td>";
+							for( get_linescore_header(competitions.competitors[0] in linescore){
+								scoreboard += "<td>" + linescore + "</td>";
 							}
 						}
 						render_headerscore(competitions);
@@ -131,6 +132,103 @@ var get_card_header = function(competition){
     competitionStatus = competition.status.detail;
     return {'homeTeam' : homeTeam , 'homeTeamScore' : homeTeamScore, 'homeTeamColor' : homeTeamColor , 'awayTeam' : awayTeam , 'awayTeamScore' : awayTeamScore, 'awayTeamColor' : awayTeamColor , 'competitionStatus' : competitionStatus,  'winningTeam' : winningTeam};
   }
+
+//linescores
+var get_linescore_header = function(competitor){
+	var linescore_header = new Array();
+	if(competitor.linescores.length > 0){
+		$.each(competitor.linescores, function(key,linescore){
+			linescore_header.push(linescore.label != undefined ? linescore.label : linescore.period);
+		});
+	}
+	return linescore_header;
+}
+
+//game information
+var get_competition_info = function(event){
+	var venue = event.venues[0].name;
+	var address = event.venues[0].city + "," + event.venues[0].state + " " + event.venues.country;
+	fmt = new DateFmt("%w %d:%n:%y - %H:%M:%S  %i");
+	var date = fmt.format(event.date);
+	return {'venue' : venue, 'location' : address, 'dateOfCompetition' : date};
+}
+
+
+
+function DateFmt(fstr) {
+  this.formatString = fstr
+
+  var mthNames = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  var dayNames = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+  var zeroPad = function(number) {
+     return ("0"+number).substr(-2,2);
+  }
+
+  var dateMarkers = {
+    d:['getDate',function(v) { return zeroPad(v)}],
+    m:['getMonth',function(v) { return zeroPad(v+1)}],
+    n:['getMonth',function(v) { return mthNames[v]; }],
+    w:['getDay',function(v) { return dayNames[v]; }],
+    y:['getFullYear'],
+    H:['getHours',function(v) { return zeroPad(v)}],
+    M:['getMinutes',function(v) { return zeroPad(v)}],
+    S:['getSeconds',function(v) { return zeroPad(v)}],
+    i:['toISOString']
+  };
+
+  this.format = function(date) {
+    var dateTxt = this.formatString.replace(/%(.)/g, function(m, p) {
+      var rv = date[(dateMarkers[p])[0]]()
+
+      if ( dateMarkers[p][1] != null ) rv = dateMarkers[p][1](rv)
+
+      return rv
+
+    });
+
+    return dateTxt
+  }
+
+}
+
+
+//getsoccerinformation
+var soccer_getcompetitordetails = function(competitionId,callback){
+	var soccer_compdetails = new Array();
+	$.getJSON('http://api.espn.com/v1/sports/soccer/events/' + competitionId + "?apikey=g3esy55uphsvhxe9sj8xvagk", function( result ) {
+		$.each(result.sports, function(key,sports){
+			$.each(sports.leagues, function(key,leagues){
+				$.each(leagues.events,function(key,events){
+					$.each(events.competitions,function(key,competitions){
+						$.each(competitions.competitors, function(key, competitor){
+							var redcards = 0;
+							var yellowcards = 0;
+							var shotsongoal = 0;
+							var totalshots = 0;
+							$.each(competitor.team.athletes, function(key,athlete){
+								redcards += athlete.redCards;
+								yellowcards += athlete.yellowCards;
+								totalshots += athlete.totalShots;
+								shotsongoal += athlete.shotsOnTarget;
+							}); 
+								soccer_compdetails.push({'team' : competitor.homeAway, 'redcards' : redcards, 'yellowcards' : yellowcards, 'shotsongoal' : shotsongoal, 'totalshots' : totalshots});
+						});
+					});
+				});
+			});
+		});
+		callback(soccer_compdetails);
+  	});
+}
+
+//top performers, stricly only NFL
+var nfl_top_performers = function(gameId, callback){
+	$.getJSON('http://sports-uat.espn.go.com/nfl/users/bmurray/topPerformers?gameId=' + gameId, function( result ) {
+		callback(result);
+	}
+}
+
+
 </script>
 </head>
 

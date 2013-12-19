@@ -208,11 +208,7 @@
 			cache: true,
 			data: {'id': playerId},
 			success: function (jsonp) {
-				$('#insertHere>div>div').append('<div class="scembed-back">' +
-				(!!data.team.color ? '<div style="background-color: #' + data.team.color + '" class="scembed-player-topline"></div>' : '') +
-				jsonp.gamelog + 
-				'<div class="scembed-playercard-links"><a href="http://www.espn.com">Complete Player Card</a></div>' +
-				'</div>');	
+				$('#insertHere>div>div').append('<div class="scembed-back">' + jsonp.gamelog + '</div>');	
 			}
 		});
 	}
